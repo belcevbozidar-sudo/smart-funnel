@@ -28,14 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       2. Премиум Мултистеп Попъп Форма (Modal Logic)
+       2. Премиум Мултистеп Попъп Форма (Modal Logic - 4 Steps)
        ========================================================================== */
     const modal = document.getElementById('apply-modal');
     const openModalBtns = document.querySelectorAll('.open-modal-btn');
     const closeModalBtn = document.getElementById('modal-close-btn');
     const applyForm = document.getElementById('apply-form');
-    const modalSuccessState = document.getElementById('modal-success-state');
-    const closeSuccessBtn = document.getElementById('btn-close-success');
     const modalSteps = document.querySelectorAll('.modal-step');
     const modalProgressBar = document.getElementById('modal-progress-bar');
 
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-    if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeModal);
 
     // Затваряне при клик извън модалната карта
     if (modal) {
@@ -80,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateModalStep = (stepNumber) => {
         currentStep = stepNumber;
         
-        // Пресмятане на прогреса
-        const progressPercent = ((currentStep) / 3) * 100;
+        // Пресмятане на прогреса за 4 стъпки (25%, 50%, 75%, 100%)
+        const progressPercent = (currentStep / 4) * 100;
         if (modalProgressBar) modalProgressBar.style.width = `${progressPercent}%`;
 
         modalSteps.forEach(step => {
@@ -94,25 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resetModalForm = () => {
         if (applyForm) applyForm.reset();
-        if (modalSuccessState) modalSuccessState.style.display = 'none';
         if (applyForm) applyForm.style.display = 'block';
         
         // Махане на .selected класовете
-        document.querySelectorAll('.modal-option, .modal-option-inline').forEach(el => {
+        document.querySelectorAll('.modal-option').forEach(el => {
             el.classList.remove('selected');
         });
         
         const otherGroup = document.getElementById('other-business-group');
         if (otherGroup) otherGroup.style.display = 'none';
 
-        const err2 = document.getElementById('step2-error-msg');
-        if (err2) err2.style.display = 'none';
+        const err3 = document.getElementById('step3-error-msg');
+        if (err3) err3.style.display = 'none';
+
+        // Възстановяване бутон за изпращане
+        const submitBtn = document.getElementById('btn-submit-form');
+        const submitSpinner = document.getElementById('submit-spinner');
+        const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitSpinner) submitSpinner.style.display = 'none';
+        if (btnText) btnText.style.display = 'inline';
 
         updateModalStep(1);
     };
 
-    // Стилизиране и интеракция на радио бутоните
-    document.querySelectorAll('.modal-option input[type="radio"]').forEach(radio => {
+    // Стилизиране и интеракция на радио бутоните на стъпка 1
+    document.querySelectorAll('input[name="business-type"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
             const parent = radio.closest('.modal-option');
             const siblings = parent.parentElement.querySelectorAll('.modal-option');
@@ -120,26 +124,40 @@ document.addEventListener('DOMContentLoaded', () => {
             siblings.forEach(el => el.classList.remove('selected'));
             parent.classList.add('selected');
 
-            // Ако е избрано "Друго"
             const otherGroup = document.getElementById('other-business-group');
-            if (otherGroup) {
-                if (e.target.value === 'other') {
+            if (e.target.value === 'other') {
+                if (otherGroup) {
                     otherGroup.style.display = 'block';
-                    document.getElementById('form-other-business').focus();
-                } else {
-                    otherGroup.style.display = 'none';
+                    const otherInput = document.getElementById('form-other-business');
+                    if (otherInput) otherInput.focus();
                 }
+            } else {
+                if (otherGroup) otherGroup.style.display = 'none';
+                // Автоматично преминаване към Стъпка 2 с кратко забавяне за по-добра визуализация
+                setTimeout(() => {
+                    if (currentStep === 1) {
+                        updateModalStep(2);
+                    }
+                }, 300);
             }
         });
     });
 
-    document.querySelectorAll('.modal-option-inline input[type="radio"]').forEach(radio => {
+    // Стилизиране и интеракция на радио бутоните на стъпка 2
+    document.querySelectorAll('input[name="client-cost"]').forEach(radio => {
         radio.addEventListener('change', () => {
-            const parent = radio.closest('.modal-option-inline');
-            const siblings = parent.parentElement.querySelectorAll('.modal-option-inline');
+            const parent = radio.closest('.modal-option');
+            const siblings = parent.parentElement.querySelectorAll('.modal-option');
             
             siblings.forEach(el => el.classList.remove('selected'));
             parent.classList.add('selected');
+
+            // Автоматично преминаване към Стъпка 3 с кратко забавяне
+            setTimeout(() => {
+                if (currentStep === 2) {
+                    updateModalStep(3);
+                }
+            }, 300);
         });
     });
 
@@ -153,6 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert("Моля, изберете сектор за вашия бизнес.");
                     return;
                 }
+                if (selectedBusiness.value === 'other') {
+                    const otherText = document.getElementById('form-other-business').value.trim();
+                    if (otherText === "") {
+                        alert("Моля, опишете вашия бизнес в текстовото поле.");
+                        return;
+                    }
+                }
                 updateModalStep(2);
             } else if (currentStep === 2) {
                 // Валидация на стъпка 2
@@ -161,20 +186,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert("Моля, изберете средната стойност, която ви носи един клиент.");
                     return;
                 }
-
+                updateModalStep(3);
+            } else if (currentStep === 3) {
+                // Валидация на стъпка 3: Поне едно от двете полета трябва да е попълнено
                 const onlinePresence = document.getElementById('form-online').value.trim();
                 const businessDesc = document.getElementById('form-message').value.trim();
-                const errorMsg = document.getElementById('step2-error-msg');
+                const errorMsg = document.getElementById('step3-error-msg');
 
-                // Поне едно от двете полета трябва да е попълнено
                 if (onlinePresence === "" && businessDesc === "") {
                     if (errorMsg) errorMsg.style.display = 'block';
                     return;
                 } else {
                     if (errorMsg) errorMsg.style.display = 'none';
                 }
-
-                updateModalStep(3);
+                updateModalStep(4);
             }
         });
     });
@@ -192,18 +217,18 @@ document.addEventListener('DOMContentLoaded', () => {
         applyForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Бутон ефект
             const submitBtn = document.getElementById('btn-submit-form');
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `Изпращане на заявката...`;
+            const submitSpinner = document.getElementById('submit-spinner');
+            const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
 
-            // Симулирано изчакване за психологически ефект на висок статус
+            if (submitBtn) submitBtn.disabled = true;
+            if (submitSpinner) submitSpinner.style.display = 'inline-block';
+            if (btnText) btnText.style.display = 'none';
+
+            // Симулирано изчакване за психологически ефект на висок статус и пренасочване
             setTimeout(() => {
-                applyForm.style.display = 'none';
-                if (modalSuccessState) modalSuccessState.style.display = 'block';
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
+                closeModal();
+                window.location.href = 'thank-you.html';
             }, 2000);
         });
     }
