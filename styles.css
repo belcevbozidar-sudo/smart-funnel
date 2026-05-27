@@ -1,7 +1,7 @@
 /*
- * Smart Funnel - CSS Design System
- * Оптимизиран за максимално доверие, сигурност и авторитет (тип банкови и финансови институции).
- * Използва дълбоко кралско синьо, платина и ледено синьо.
+ * Smart Funnel - CSS Design System (Light Premium Theme)
+ * Оптимизиран за максимално доверие, сигурност и банкова тежест.
+ * Цветове: светлосив премиум фон с лек градиент, сенки, кралско синьо и платина.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
@@ -14,28 +14,28 @@
 }
 
 :root {
-    /* Цветова палитра - Институционално Доверие и Сигурност */
-    --color-bg-deep: #080C16;
-    --color-bg-card: rgba(15, 23, 42, 0.75);
-    --color-border-glass: rgba(59, 130, 246, 0.12);
-    --color-border-glass-hover: rgba(59, 130, 246, 0.3);
+    /* Цветова палитра - Институционално Доверие и Сигурност (Светъл режим) */
+    --color-bg-deep: #F8FAFC; /* Основен светлосив премиум фон */
+    --color-bg-card: rgba(255, 255, 255, 0.85); /* Елегантна стъклена карта */
+    --color-border-glass: rgba(37, 99, 235, 0.08);
+    --color-border-glass-hover: rgba(37, 99, 235, 0.22);
     
-    /* Кралско синьо и Сребърна платина */
+    /* Кралско синьо */
     --blue-1: #EFF6FF;
     --blue-2: #DBEAFE;
     --blue-3: #2563EB;
     --blue-4: #1D4ED8;
     --blue-5: #1E3A8A;
-    --blue-gradient: linear-gradient(135deg, #FFFFFF 0%, #3B82F6 60%, #1E3A8A 100%);
-    --blue-glow: 0 0 25px rgba(37, 99, 235, 0.25);
+    --blue-gradient: linear-gradient(135deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%);
+    --blue-glow: 0 10px 25px rgba(37, 99, 235, 0.12);
     
-    /* Сребърно-платинени акценти (Висок статус) */
-    --platinum-gradient: linear-gradient(135deg, #F8FAFC 0%, #CBD5E1 50%, #94A3B8 100%);
+    /* Сребърно-платинени градиенти за заглавията */
+    --platinum-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #475569 100%);
     
-    /* Текстови цветове */
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --text-muted: #475569;
+    /* Текстови цветове - Тъмни за максимална четимост в светъл режим */
+    --text-primary: #0F172A; /* Тъмно сиво-синьо */
+    --text-secondary: #334155;
+    --text-muted: #64748B;
     
     /* Шрифтове */
     --font-heading: 'Outfit', sans-serif;
@@ -62,9 +62,11 @@ body {
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
+    /* Светлосив градиент на целия сайт със сенки */
+    background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
 }
 
-/* --- Фонови сияния (Atmospheric Glow - Institutional Style) --- */
+/* --- Фонови сияния --- */
 .ambient-glow {
     position: absolute;
     width: 60vw;
@@ -72,7 +74,7 @@ body {
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.12;
+    opacity: 0.05;
     filter: blur(140px);
 }
 
@@ -86,14 +88,12 @@ body {
     top: 120vh;
     left: -20vw;
     background: radial-gradient(circle, #0284c7 0%, transparent 70%);
-    opacity: 0.1;
 }
 
 .glow-bottom-right {
     bottom: 10vh;
     right: -10vw;
     background: radial-gradient(circle, var(--blue-5) 0%, transparent 70%);
-    opacity: 0.08;
 }
 
 /* --- Типография --- */
@@ -135,21 +135,22 @@ p {
 }
 
 section {
-    padding: 8rem 0;
+    padding: 6rem 0; /* Намалено от 8rem за по-голяма компактност */
     position: relative;
     z-index: 5;
 }
 
-/* --- Хедър --- */
+/* --- Хедър (Супер тънък и компактен) --- */
 header {
-    padding: 2rem 0;
+    padding: 0.85rem 0; /* Силно намалено от 2rem за компактност */
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    background: rgba(8, 12, 22, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    background: rgba(248, 250, 252, 0.85);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
 }
 
 .header-container {
@@ -158,14 +159,23 @@ header {
     align-items: center;
 }
 
+@media (max-width: 600px) {
+    .header-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        text-align: center;
+    }
+}
+
 .logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.35rem; /* Малко по-компактен */
     letter-spacing: -0.03em;
 }
 
@@ -173,9 +183,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     box-shadow: var(--blue-glow);
     position: relative;
@@ -185,17 +195,17 @@ header {
     content: '';
     position: absolute;
     inset: 1px;
-    background: var(--color-bg-deep);
-    border-radius: 9px;
+    background: #FFFFFF;
+    border-radius: 7px;
     z-index: 1;
 }
 
 .logo-icon span {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 900;
     position: relative;
     z-index: 2;
-    background: var(--platinum-gradient);
+    background: var(--blue-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -209,22 +219,30 @@ header {
 }
 
 .header-badge {
-    background: rgba(37, 99, 235, 0.08);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    padding: 0.5rem 1rem;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    padding: 0.4rem 0.85rem;
     border-radius: 30px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.75rem; /* По-компактно на телефони */
+    font-weight: 700;
     font-family: var(--font-heading);
-    color: var(--blue-2);
-    letter-spacing: 0.05em;
+    color: var(--blue-5);
+    letter-spacing: 0.03em;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
-/* --- Hero Секция --- */
+@media (max-width: 600px) {
+    .header-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+
+/* --- Hero Секция (Оптимизирано разстояние) --- */
 .hero-section {
-    padding-top: 6rem;
-    padding-bottom: 8rem;
+    padding-top: 3.5rem; /* Силно намалено за премахване на празното пространство */
+    padding-bottom: 6rem;
     text-align: center;
 }
 
@@ -232,16 +250,16 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 0.5rem 1rem;
     border-radius: 100px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 2.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 2rem; /* Намалено от 2.5rem */
     font-family: var(--font-heading);
-    letter-spacing: 0.01em;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
 }
 
 .badge-exclusive span {
@@ -250,37 +268,44 @@ header {
     height: 8px;
     background-color: var(--blue-3);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--blue-3);
+    box-shadow: 0 0 8px var(--blue-3);
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 900;
+    font-size: 3.75rem;
+    font-weight: 800;
     max-width: 950px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1.5rem;
     letter-spacing: -0.03em;
-    line-height: 1.08;
+    line-height: 1.1;
+    color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
     }
 }
 
 .hero-subtitle {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     max-width: 720px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2.5rem;
     line-height: 1.5;
     color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
 }
 
 .cta-group {
@@ -296,9 +321,9 @@ header {
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    padding: 1.25rem 2.5rem;
+    padding: 1.1rem 2.25rem;
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: var(--radius-premium);
@@ -310,14 +335,14 @@ header {
 }
 
 .btn-blue {
-    background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+    background: linear-gradient(135deg, #2563EB 0%, #1E3A8A 100%);
     color: #FFFFFF;
-    box-shadow: var(--blue-glow);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }
 
 .btn-blue:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
 }
 
 .btn-blue:active {
@@ -325,19 +350,21 @@ header {
 }
 
 .btn-outline {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     color: var(--text-primary);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #FFFFFF;
+    border-color: rgba(15, 23, 42, 0.2);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.05);
 }
 
 .cta-subtext {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     display: flex;
     align-items: center;
@@ -351,33 +378,34 @@ header {
 
 /* --- Секция 2: Психологическо Осъзнаване --- */
 .socratic-section {
-    background: linear-gradient(180deg, var(--color-bg-deep) 0%, rgba(30, 58, 138, 0.2) 50%, var(--color-bg-deep) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(30, 58, 138, 0.02) 50%, transparent 100%);
 }
 
 .section-tag {
     font-family: var(--font-heading);
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 800;
     color: var(--blue-3);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 1.5rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
     text-align: center;
     display: block;
 }
 
 .section-title {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     font-weight: 800;
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3.5rem;
     letter-spacing: -0.02em;
+    color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
+        font-size: 1.85rem;
     }
 }
 
@@ -385,25 +413,27 @@ header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 @media (max-width: 900px) {
     .question-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
-/* Стъклени Карти - Institutional Style */
+/* Стъклени Карти в светъл режим със сенки */
 .glass-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border-glass);
     border-radius: var(--radius-premium);
-    padding: 3rem 2.25rem;
+    padding: 2.75rem 2rem;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.03), 0 1px 3px rgba(15, 23, 42, 0.01);
     transition: var(--transition-premium);
 }
 
@@ -419,9 +449,9 @@ header {
 }
 
 .glass-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     border-color: var(--color-border-glass-hover);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 25px 45px rgba(15, 23, 42, 0.06), 0 2px 5px rgba(15, 23, 42, 0.02);
 }
 
 .glass-card:hover::before {
@@ -430,39 +460,39 @@ header {
 
 .card-num {
     font-family: var(--font-heading);
-    font-size: 3rem;
+    font-size: 2.75rem;
     font-weight: 900;
-    background: linear-gradient(180deg, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 100%);
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     line-height: 1;
 }
 
 .card-question {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 750;
     color: var(--text-primary);
-    margin-bottom: 1.25rem;
-    line-height: 1.3;
+    margin-bottom: 1rem;
+    line-height: 1.35;
 }
 
 .card-desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.5;
 }
 
 /* --- Секция 3: Механизмът --- */
 .mechanism-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
 
 .timeline {
     position: relative;
     max-width: 800px;
-    margin: 4rem auto 0;
+    margin: 3.5rem auto 0;
 }
 
 .timeline::before {
@@ -473,13 +503,13 @@ header {
     left: 50%;
     width: 2px;
     background: linear-gradient(180deg, var(--blue-3) 0%, #60A5FA 100%);
-    opacity: 0.2;
+    opacity: 0.15;
     transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
     .timeline::before {
-        left: 30px;
+        left: 20px;
     }
 }
 
@@ -487,7 +517,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4.5rem;
     position: relative;
 }
 
@@ -513,15 +543,15 @@ header {
     .timeline-item, .timeline-item:nth-child(even) {
         flex-direction: column-reverse;
         align-items: flex-start;
-        padding-left: 70px;
-        margin-bottom: 4rem;
+        padding-left: 50px;
+        margin-bottom: 3.5rem;
     }
     .timeline-img-holder, .timeline-content-holder {
         width: 100%;
         justify-content: flex-start;
     }
     .timeline-img-holder {
-        margin-top: 1.5rem;
+        margin-top: 1.25rem;
     }
 }
 
@@ -529,35 +559,35 @@ header {
     position: absolute;
     left: 50%;
     top: 20px;
-    width: 24px;
-    height: 24px;
-    background: var(--color-bg-deep);
+    width: 20px;
+    height: 20px;
+    background: #F8FAFC;
     border: 3px solid var(--blue-3);
     border-radius: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 0 15px var(--blue-3);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
     z-index: 10;
 }
 
 .timeline-item:nth-child(even) .timeline-dot {
     border-color: #60A5FA;
-    box-shadow: 0 0 15px #60A5FA;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
 }
 
 @media (max-width: 768px) {
     .timeline-dot {
-        left: 30px;
+        left: 20px;
     }
 }
 
 .timeline-step {
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--blue-3);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
     display: block;
 }
 
@@ -566,58 +596,59 @@ header {
 }
 
 .timeline-title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     letter-spacing: -0.01em;
+    color: var(--text-primary);
 }
 
 .timeline-desc {
     color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.55;
 }
 
-/* Луксозни графични панели */
+/* Луксозни графични панели в светъл режим */
 .premium-graphic {
-    background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.04) 100%);
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.05);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 1.75rem;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     position: relative;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
 }
 
 .graphic-line {
     height: 8px;
     border-radius: 4px;
-    background: rgba(255,255,255,0.05);
-    margin-bottom: 1rem;
+    background: rgba(15, 23, 42, 0.04);
+    margin-bottom: 0.85rem;
     width: 100%;
 }
 
 .graphic-line.short { width: 60%; }
 .graphic-line.med { width: 80%; }
 .graphic-line.active { background: linear-gradient(90deg, var(--blue-3), #60A5FA); box-shadow: var(--blue-glow); }
-.graphic-line.indigo { background: linear-gradient(90deg, #10b981, #34d399); box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+.graphic-line.indigo { background: linear-gradient(90deg, #10b981, #34d399); box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
 
 .graphic-badge {
     display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background: rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 0.35rem 0.75rem;
+    background: rgba(37, 99, 235, 0.05);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     border-radius: 30px;
-    color: var(--blue-2);
-    font-size: 0.8rem;
+    color: var(--blue-5);
+    font-size: 0.75rem;
     font-family: var(--font-heading);
     font-weight: 700;
 }
 
 /* --- Секция 4: Интерактивен Куиз --- */
 .quiz-section {
-    background: linear-gradient(180deg, var(--color-bg-deep) 0%, rgba(37, 99, 235, 0.04) 50%, var(--color-bg-deep) 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.02) 50%, transparent 100%);
 }
 
 .quiz-wrapper {
@@ -627,9 +658,9 @@ header {
 
 .quiz-progress {
     height: 4px;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.05);
     border-radius: 2px;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     overflow: hidden;
     position: relative;
 }
@@ -646,14 +677,12 @@ header {
 }
 
 .quiz-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border-glass);
+    background: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.05);
     border-radius: var(--radius-premium);
-    padding: 4rem 3.5rem;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    min-height: 420px;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 25px 55px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -661,30 +690,31 @@ header {
 
 @media (max-width: 600px) {
     .quiz-card {
-        padding: 2.5rem 1.75rem;
+        padding: 2.25rem 1.5rem;
     }
 }
 
 .quiz-step-title {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
     font-weight: 800;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
     letter-spacing: -0.01em;
+    color: var(--text-primary);
 }
 
 .quiz-options {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
 }
 
 .quiz-option {
     display: flex;
     align-items: center;
-    padding: 1.25rem 1.75rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.1rem 1.5rem;
+    background: rgba(15, 23, 42, 0.02);
+    border: 1px solid rgba(15, 23, 42, 0.05);
     border-radius: 12px;
     cursor: pointer;
     transition: var(--transition-premium);
@@ -693,14 +723,14 @@ header {
 }
 
 .quiz-option:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.1);
 }
 
 .quiz-option.selected {
     background: rgba(37, 99, 235, 0.05);
     border-color: var(--blue-3);
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.08);
 }
 
 .quiz-option input[type="radio"] {
@@ -710,11 +740,11 @@ header {
 }
 
 .option-dot {
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(15, 23, 42, 0.2);
     border-radius: 50%;
-    margin-right: 1.25rem;
+    margin-right: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -723,7 +753,7 @@ header {
 }
 
 .quiz-option:hover .option-dot {
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(15, 23, 42, 0.4);
 }
 
 .quiz-option.selected .option-dot {
@@ -732,15 +762,15 @@ header {
 
 .quiz-option.selected .option-dot::before {
     content: '';
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     border-radius: 50%;
 }
 
 .option-text {
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.05rem;
+    font-weight: 550;
     color: var(--text-primary);
 }
 
@@ -751,9 +781,9 @@ header {
 }
 
 .btn-quiz-nav {
-    padding: 0.9rem 1.8rem;
+    padding: 0.85rem 1.75rem;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: var(--font-heading);
     font-weight: 700;
     cursor: pointer;
@@ -773,16 +803,16 @@ header {
 .btn-quiz-next {
     background: linear-gradient(135deg, var(--blue-3) 0%, var(--blue-4) 100%);
     color: #FFFFFF;
-    box-shadow: var(--blue-glow);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
 }
 
 .btn-quiz-next:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
 }
 
 .btn-quiz-next:disabled {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.05);
     color: var(--text-muted);
     box-shadow: none;
     cursor: not-allowed;
@@ -796,62 +826,62 @@ header {
 }
 
 .sim-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .sim-headline {
-    font-size: 2rem;
+    font-size: 1.85rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .sim-body {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     max-width: 500px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 2.25rem;
     line-height: 1.6;
 }
 
 .sim-badge-qualify {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 0.65rem 1.35rem;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.25);
     border-radius: 30px;
-    color: #4ade80;
+    color: #16a34a;
     font-weight: 700;
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.05em;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     animation: scalePulse 2s infinite ease-in-out;
 }
 
 @keyframes scalePulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.03); }
     100% { transform: scale(1); }
 }
 
 .sim-badge-disqualify {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 0.65rem 1.35rem;
+    background: rgba(220, 38, 38, 0.06);
+    border: 1px solid rgba(220, 38, 38, 0.2);
     border-radius: 30px;
-    color: #fca5a5;
+    color: #dc2626;
     font-weight: 700;
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 0.05em;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
 }
 
 /* --- Секция 5: ROI Калкулатор --- */
 .roi-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
 
 .roi-container {
@@ -865,20 +895,20 @@ header {
 @media (max-width: 900px) {
     .roi-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
     }
 }
 
 .roi-inputs {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2.25rem;
 }
 
 .roi-input-group {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
 }
 
 .roi-label-row {
@@ -889,14 +919,14 @@ header {
 
 .roi-label {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .roi-value-display {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--blue-3);
 }
@@ -908,7 +938,7 @@ header {
     width: 100%;
     height: 6px;
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.08);
     outline: none;
     transition: var(--transition-premium);
 }
@@ -916,43 +946,43 @@ header {
 .roi-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
     transition: var(--transition-bounce);
 }
 
 .roi-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.7);
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 .roi-slider::-moz-range-thumb {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     border: none;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
     transition: var(--transition-bounce);
 }
 
 .roi-slider::-moz-range-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.7);
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 /* Резултати Калкулатор */
 .roi-results-card {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(96, 165, 250, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(96, 165, 250, 0.03) 100%);
     border: 1px solid var(--color-border-glass-hover);
-    box-shadow: var(--blue-glow), 0 30px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.01);
     border-radius: var(--radius-premium);
-    padding: 3.5rem;
+    padding: 3rem 2.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -963,29 +993,29 @@ header {
     position: absolute;
     inset: 0;
     border-radius: var(--radius-premium);
-    background: radial-gradient(circle at 50% 120%, rgba(37, 99, 235, 0.05) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 120%, rgba(37, 99, 235, 0.03) 0%, transparent 60%);
     pointer-events: none;
 }
 
 .roi-result-label {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .roi-result-main-value {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-size: 3.25rem;
     font-weight: 900;
     color: var(--text-primary);
     background: var(--blue-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
     letter-spacing: -0.02em;
     line-height: 1;
 }
@@ -993,9 +1023,9 @@ header {
 .roi-stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding-top: 2rem;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    padding-top: 1.75rem;
 }
 
 .roi-stat-box {
@@ -1004,43 +1034,41 @@ header {
 
 .roi-stat-num {
     font-family: var(--font-heading);
-    font-size: 1.65rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 .roi-stat-num.indigo {
-    color: #60A5FA;
+    color: var(--blue-3);
 }
 
 .roi-stat-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
 }
 
 /* --- Секция 6: Офертата --- */
 .offer-section {
-    background: linear-gradient(180deg, var(--color-bg-deep) 0%, rgba(15, 23, 42, 0.5) 50%, var(--color-bg-deep) 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.02) 50%, transparent 100%);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
 
 .offer-card {
-    background: var(--color-bg-card);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    background: #FFFFFF;
+    border: 1px solid rgba(59, 130, 246, 0.15);
     border-radius: 24px;
-    padding: 5rem 4.5rem;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), var(--blue-glow);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    padding: 4.5rem 3.5rem;
+    box-shadow: 0 35px 75px rgba(15, 23, 42, 0.05), 0 2px 10px rgba(15, 23, 42, 0.02);
     position: relative;
     overflow: hidden;
-    margin-top: 3rem;
+    margin-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
     .offer-card {
-        padding: 3rem 2rem;
+        padding: 3rem 1.75rem;
     }
 }
 
@@ -1050,45 +1078,45 @@ header {
     right: -45px;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     color: #FFFFFF;
-    padding: 0.5rem 3rem;
+    padding: 0.4rem 3rem;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     transform: rotate(45deg);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
 }
 
 .offer-header {
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
 }
 
 .offer-header-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 900;
     letter-spacing: -0.02em;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 .offer-price-row {
     display: flex;
     align-items: baseline;
     gap: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     flex-wrap: wrap;
 }
 
 .price-old {
     font-family: var(--font-heading);
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     text-decoration: line-through;
     color: var(--text-muted);
 }
 
 .price-new {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: 3.75rem;
     font-weight: 900;
     background: var(--blue-gradient);
     -webkit-background-clip: text;
@@ -1097,111 +1125,113 @@ header {
 }
 
 .price-badge {
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    color: #93c5fd;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    color: var(--blue-5);
     font-family: var(--font-heading);
     font-weight: 700;
-    padding: 0.4rem 0.9rem;
+    padding: 0.35rem 0.85rem;
     border-radius: 30px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .offer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 @media (max-width: 850px) {
     .offer-grid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2rem;
     }
 }
 
 .offer-column h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 800;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding-bottom: 0.75rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    padding-bottom: 0.6rem;
 }
 
 .offer-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .offer-item {
     display: flex;
-    gap: 1rem;
+    gap: 0.85rem;
 }
 
 .offer-icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    color: #4ade80;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #16a34a;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     margin-top: 0.15rem;
+    font-size: 0.85rem;
 }
 
 .offer-text h4 {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
 }
 
 .offer-text p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.4;
 }
 
 .bonus-badge {
     display: inline-block;
-    padding: 0.2rem 0.5rem;
+    padding: 0.15rem 0.4rem;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     color: #FFFFFF;
     border-radius: 4px;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
-    margin-left: 0.5rem;
+    margin-left: 0.4rem;
     vertical-align: middle;
 }
 
-/* --- Секция 7: Безусловната Гаранция --- */
+/* --- Секция 7: Безусловната Договорна Гаранция --- */
 .guarantee-section {
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
 
 .guarantee-box {
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.03) 100%);
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 20px;
-    padding: 4.5rem;
+    padding: 4rem 3.5rem;
     display: flex;
     gap: 3rem;
     align-items: center;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.03);
 }
 
 @media (max-width: 800px) {
     .guarantee-box {
         flex-direction: column;
         text-align: center;
-        padding: 3rem 2rem;
+        padding: 2.5rem 1.5rem;
+        gap: 2rem;
     }
 }
 
@@ -1212,24 +1242,24 @@ header {
 }
 
 .guarantee-seal {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
     border: 3px double var(--blue-3);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #60A5FA;
+    color: var(--blue-3);
     font-family: var(--font-heading);
     font-weight: 900;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
     text-transform: uppercase;
     line-height: 1.2;
     letter-spacing: 0.02em;
     position: relative;
-    box-shadow: var(--blue-glow);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.05);
     animation: rotateSlow 20s linear infinite;
 }
 
@@ -1243,14 +1273,15 @@ header {
 }
 
 .guarantee-content h3 {
-    font-size: 2rem;
+    font-size: 1.85rem;
     font-weight: 900;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
+    color: var(--text-primary);
 }
 
 .guarantee-content p {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     line-height: 1.6;
     color: var(--text-secondary);
 }
@@ -1261,93 +1292,94 @@ header {
 
 /* --- Секция 8: Кандидатстване --- */
 .apply-section {
-    background: linear-gradient(180deg, var(--color-bg-deep) 0%, rgba(37, 99, 235, 0.02) 100%);
-    border-top: 1px solid rgba(255, 255, 255, 0.02);
-    padding-bottom: 10rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.02) 100%);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
+    padding-bottom: 8rem;
 }
 
 .apply-card {
     max-width: 650px;
-    margin: 3rem auto 0;
+    margin: 2.5rem auto 0;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    margin-bottom: 1.75rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
     font-family: var(--font-heading);
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-primary);
 }
 
 .form-group input, .form-group select, .form-group textarea {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     border-radius: 10px;
-    padding: 1.1rem 1.25rem;
+    padding: 1rem 1.15rem;
     color: var(--text-primary);
     font-family: var(--font-body);
-    font-size: 1.05rem;
+    font-size: 1rem;
     transition: var(--transition-premium);
     outline: none;
     width: 100%;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.01) inset;
 }
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     border-color: var(--blue-3);
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 0 15px rgba(37, 99, 235, 0.15);
+    background: #FFFFFF;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.1);
 }
 
 .form-group select {
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1.25rem center;
-    background-size: 1.25rem;
+    background-position: right 1.15rem center;
+    background-size: 1.15rem;
 }
 
 .form-group textarea {
-    min-height: 120px;
+    min-height: 110px;
     resize: vertical;
 }
 
 .form-status {
-    padding: 1.25rem;
+    padding: 1.15rem;
     border-radius: 10px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     display: none;
     font-family: var(--font-heading);
 }
 
 .form-status.success {
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    color: #4ade80;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #16a34a;
     display: block;
 }
 
 .form-status.error {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #fca5a5;
+    background: rgba(220, 38, 38, 0.06);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    color: #dc2626;
     display: block;
 }
 
 /* --- Премиум Футър --- */
 footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    padding: 4rem 0;
-    background: rgba(8, 12, 22, 0.95);
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 3.5rem 0;
+    background: #FFFFFF;
     position: relative;
     z-index: 10;
 }
@@ -1357,7 +1389,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.75rem;
 }
 
 @media (max-width: 600px) {
@@ -1369,18 +1401,18 @@ footer {
 
 .footer-copy {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .footer-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 .footer-links a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: var(--transition-premium);
 }
 
@@ -1391,7 +1423,7 @@ footer {
 /* --- Ефекти при Скрол --- */
 .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
