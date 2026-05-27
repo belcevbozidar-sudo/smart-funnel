@@ -1,7 +1,7 @@
 /*
- * Smart Funnel - CSS Design System (Light Premium Theme)
+ * Smart Funnel - CSS Design System (Light Premium Theme - Refined)
  * Оптимизиран за максимално доверие, сигурност и банкова тежест.
- * Цветове: светлосив премиум фон с лек градиент, сенки, кралско синьо и платина.
+ * Всички анимации са направени изключително плавни, нежни и елегантни.
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
@@ -14,9 +14,9 @@
 }
 
 :root {
-    /* Цветова палитра - Институционално Доверие и Сигурност (Светъл режим) */
-    --color-bg-deep: #F8FAFC; /* Основен светлосив премиум фон */
-    --color-bg-card: rgba(255, 255, 255, 0.85); /* Елегантна стъклена карта */
+    /* Цветова палитра - Институционално Доверие и Сигурност */
+    --color-bg-deep: #F8FAFC;
+    --color-bg-card: rgba(255, 255, 255, 0.85);
     --color-border-glass: rgba(37, 99, 235, 0.08);
     --color-border-glass-hover: rgba(37, 99, 235, 0.22);
     
@@ -32,8 +32,8 @@
     /* Сребърно-платинени градиенти за заглавията */
     --platinum-gradient: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #475569 100%);
     
-    /* Текстови цветове - Тъмни за максимална четимост в светъл режим */
-    --text-primary: #0F172A; /* Тъмно сиво-синьо */
+    /* Текстови цветове */
+    --text-primary: #0F172A;
     --text-secondary: #334155;
     --text-muted: #64748B;
     
@@ -41,8 +41,8 @@
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
     
-    /* Константи за интерфейса */
-    --transition-premium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Свръх-плавни анимации (Cubic Bezier за нежен преход) */
+    --transition-premium: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     --radius-premium: 16px;
     --max-width-content: 1100px;
@@ -62,7 +62,6 @@ body {
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
-    /* Светлосив градиент на целия сайт със сенки */
     background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #E2E8F0 100%);
 }
 
@@ -74,7 +73,7 @@ body {
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.05;
+    opacity: 0.04;
     filter: blur(140px);
 }
 
@@ -102,6 +101,7 @@ h1, h2, h3, h4 {
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.15;
+    transition: var(--transition-premium);
 }
 
 .text-blue-gradient {
@@ -122,6 +122,7 @@ p {
     font-size: 1.125rem;
     color: var(--text-secondary);
     font-weight: 400;
+    transition: var(--transition-premium);
 }
 
 /* --- Layout --- */
@@ -135,14 +136,14 @@ p {
 }
 
 section {
-    padding: 6rem 0; /* Намалено от 8rem за по-голяма компактност */
+    padding: 6.5rem 0;
     position: relative;
     z-index: 5;
 }
 
-/* --- Хедър (Супер тънък и компактен) --- */
+/* --- Хедър (Супер тънък и изчистен) --- */
 header {
-    padding: 0.85rem 0; /* Силно намалено от 2rem за компактност */
+    padding: 0.85rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -151,6 +152,7 @@ header {
     border-bottom: 1px solid rgba(15, 23, 42, 0.05);
     background: rgba(248, 250, 252, 0.85);
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+    transition: var(--transition-premium);
 }
 
 .header-container {
@@ -175,7 +177,7 @@ header {
     text-decoration: none;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 1.35rem; /* Малко по-компактен */
+    font-size: 1.35rem;
     letter-spacing: -0.03em;
 }
 
@@ -218,30 +220,47 @@ header {
     color: var(--blue-3);
 }
 
-.header-badge {
-    background: rgba(37, 99, 235, 0.06);
-    border: 1px solid rgba(37, 99, 235, 0.15);
-    padding: 0.4rem 0.85rem;
-    border-radius: 30px;
-    font-size: 0.75rem; /* По-компактно на телефони */
-    font-weight: 700;
-    font-family: var(--font-heading);
-    color: var(--blue-5);
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    white-space: nowrap;
+/* --- ВАЖНА СЕКЦИЯ: Нишово Предупреждение (High-Ticket Only Banner) --- */
+.niche-alert-box {
+    background: rgba(37, 99, 235, 0.04);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem 2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.01);
 }
 
-@media (max-width: 600px) {
-    .header-badge {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.7rem;
+@media (max-width: 650px) {
+    .niche-alert-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
     }
 }
 
-/* --- Hero Секция (Оптимизирано разстояние) --- */
+.niche-alert-icon {
+    font-size: 1.75rem;
+    flex-shrink: 0;
+}
+
+.niche-alert-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+.niche-alert-text strong {
+    color: var(--blue-5);
+}
+
+/* --- Hero Секция --- */
 .hero-section {
-    padding-top: 3.5rem; /* Силно намалено за премахване на празното пространство */
+    padding-top: 3.5rem;
     padding-bottom: 6rem;
     text-align: center;
 }
@@ -257,7 +276,7 @@ header {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 2rem; /* Намалено от 2.5rem */
+    margin-bottom: 2rem;
     font-family: var(--font-heading);
     box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
 }
@@ -270,12 +289,6 @@ header {
     border-radius: 50%;
     box-shadow: 0 0 8px var(--blue-3);
     animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(37, 99, 235, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 .hero-title {
@@ -300,12 +313,6 @@ header {
     margin: 0 auto 2.5rem;
     line-height: 1.5;
     color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
 }
 
 .cta-group {
@@ -341,7 +348,7 @@ header {
 }
 
 .btn-blue:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
 }
 
@@ -369,11 +376,6 @@ header {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-}
-
-.cta-subtext svg {
-    color: var(--blue-3);
-    flex-shrink: 0;
 }
 
 /* --- Секция 2: Психологическо Осъзнаване --- */
@@ -423,7 +425,7 @@ header {
     }
 }
 
-/* Стъклени Карти в светъл режим със сенки */
+/* Карти със свръх плавни анимации */
 .glass-card {
     background: var(--color-bg-card);
     border: 1px solid var(--color-border-glass);
@@ -449,7 +451,7 @@ header {
 }
 
 .glass-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.01);
     border-color: var(--color-border-glass-hover);
     box-shadow: 0 25px 45px rgba(15, 23, 42, 0.06), 0 2px 5px rgba(15, 23, 42, 0.02);
 }
@@ -519,6 +521,7 @@ header {
     align-items: center;
     margin-bottom: 4.5rem;
     position: relative;
+    transition: var(--transition-premium);
 }
 
 .timeline-item:last-child {
@@ -529,10 +532,12 @@ header {
     width: 45%;
     display: flex;
     justify-content: center;
+    transition: var(--transition-premium);
 }
 
 .timeline-content-holder {
     width: 45%;
+    transition: var(--transition-premium);
 }
 
 .timeline-item:nth-child(even) {
@@ -567,6 +572,7 @@ header {
     transform: translateX(-50%);
     box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
     z-index: 10;
+    transition: var(--transition-premium);
 }
 
 .timeline-item:nth-child(even) .timeline-dot {
@@ -609,7 +615,7 @@ header {
     line-height: 1.55;
 }
 
-/* Луксозни графични панели в светъл режим */
+/* Луксозни графични панели */
 .premium-graphic {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(15, 23, 42, 0.05);
@@ -619,6 +625,12 @@ header {
     max-width: 300px;
     position: relative;
     box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
+    transition: var(--transition-premium);
+}
+
+.timeline-item:hover .premium-graphic {
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
 }
 
 .graphic-line {
@@ -686,6 +698,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: var(--transition-premium);
 }
 
 @media (max-width: 600px) {
@@ -725,18 +738,13 @@ header {
 .quiz-option:hover {
     background: rgba(15, 23, 42, 0.04);
     border-color: rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
 }
 
 .quiz-option.selected {
     background: rgba(37, 99, 235, 0.05);
     border-color: var(--blue-3);
     box-shadow: 0 0 12px rgba(37, 99, 235, 0.08);
-}
-
-.quiz-option input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
 }
 
 .option-dot {
@@ -750,10 +758,6 @@ header {
     justify-content: center;
     transition: var(--transition-premium);
     flex-shrink: 0;
-}
-
-.quiz-option:hover .option-dot {
-    border-color: rgba(15, 23, 42, 0.4);
 }
 
 .quiz-option.selected .option-dot {
@@ -791,15 +795,6 @@ header {
     transition: var(--transition-premium);
 }
 
-.btn-quiz-prev {
-    background: transparent;
-    color: var(--text-secondary);
-}
-
-.btn-quiz-prev:hover {
-    color: var(--text-primary);
-}
-
 .btn-quiz-next {
     background: linear-gradient(135deg, var(--blue-3) 0%, var(--blue-4) 100%);
     color: #FFFFFF;
@@ -809,14 +804,6 @@ header {
 .btn-quiz-next:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-}
-
-.btn-quiz-next:disabled {
-    background: rgba(15, 23, 42, 0.05);
-    color: var(--text-muted);
-    box-shadow: none;
-    cursor: not-allowed;
-    transform: none;
 }
 
 /* Симулатор резултати */
@@ -842,41 +829,6 @@ header {
     max-width: 500px;
     margin: 0 auto 2.25rem;
     line-height: 1.6;
-}
-
-.sim-badge-qualify {
-    display: inline-block;
-    padding: 0.65rem 1.35rem;
-    background: rgba(34, 197, 94, 0.08);
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    border-radius: 30px;
-    color: #16a34a;
-    font-weight: 700;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.75rem;
-    animation: scalePulse 2s infinite ease-in-out;
-}
-
-@keyframes scalePulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
-}
-
-.sim-badge-disqualify {
-    display: inline-block;
-    padding: 0.65rem 1.35rem;
-    background: rgba(220, 38, 38, 0.06);
-    border: 1px solid rgba(220, 38, 38, 0.2);
-    border-radius: 30px;
-    color: #dc2626;
-    font-weight: 700;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.75rem;
 }
 
 /* --- Секция 5: ROI Калкулатор --- */
@@ -960,22 +912,6 @@ header {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
-.roi-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border: none;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-    transition: var(--transition-bounce);
-}
-
-.roi-slider::-moz-range-thumb:hover {
-    transform: scale(1.15);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
-}
-
 /* Резултати Калкулатор */
 .roi-results-card {
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(96, 165, 250, 0.03) 100%);
@@ -986,15 +922,7 @@ header {
     text-align: center;
     position: relative;
     overflow: hidden;
-}
-
-.roi-results-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-premium);
-    background: radial-gradient(circle at 50% 120%, rgba(37, 99, 235, 0.03) 0%, transparent 60%);
-    pointer-events: none;
+    transition: var(--transition-premium);
 }
 
 .roi-result-label {
@@ -1020,33 +948,62 @@ header {
     line-height: 1;
 }
 
-.roi-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    border-top: 1px solid rgba(15, 23, 42, 0.06);
-    padding-top: 1.75rem;
+/* --- СЕКЦИЯ: Доказателство за мета-маркетинг (Proof of Concept) --- */
+.proof-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.03) 50%, transparent 100%);
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
 
-.roi-stat-box {
+.proof-card {
+    background: linear-gradient(135deg, #1E3A8A 0%, #0F172A 100%);
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 25px 55px rgba(15, 23, 42, 0.1);
+    color: #FFFFFF;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-premium);
 }
 
-.roi-stat-num {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
+.proof-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 35px 70px rgba(15, 23, 42, 0.15);
+}
+
+.proof-headline {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.proof-body {
+    font-size: 1.2rem;
+    color: #E2E8F0;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.proof-highlight {
+    background: linear-gradient(90deg, #60A5FA, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 800;
-    color: var(--text-primary);
-    margin-bottom: 0.2rem;
 }
 
-.roi-stat-num.indigo {
-    color: var(--blue-3);
-}
-
-.roi-stat-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
+@media (max-width: 768px) {
+    .proof-card {
+        padding: 2.5rem 1.5rem;
+    }
+    .proof-headline {
+        font-size: 1.65rem;
+    }
+    .proof-body {
+        font-size: 1.05rem;
+    }
 }
 
 /* --- Секция 6: Офертата --- */
@@ -1064,6 +1021,7 @@ header {
     position: relative;
     overflow: hidden;
     margin-top: 2.5rem;
+    transition: var(--transition-premium);
 }
 
 @media (max-width: 768px) {
@@ -1072,20 +1030,32 @@ header {
     }
 }
 
+/* Корекция на лентата - Елегантна, изправена, непокривена */
 .offer-ribbon {
     position: absolute;
-    top: 35px;
-    right: -45px;
+    top: 24px;
+    right: 24px;
     background: linear-gradient(135deg, var(--blue-3) 0%, #60A5FA 100%);
     color: #FFFFFF;
-    padding: 0.4rem 3rem;
+    padding: 0.45rem 1.35rem;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transform: rotate(45deg);
-    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.1);
+    border-radius: 30px;
+    transform: none; /* Премахнато накривяване */
+    box-shadow: 0 3px 10px rgba(37, 99, 235, 0.15);
+}
+
+@media (max-width: 650px) {
+    .offer-ribbon {
+        position: relative;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .offer-header {
@@ -1210,7 +1180,7 @@ header {
     vertical-align: middle;
 }
 
-/* --- Секция 7: Безусловната Договорна Гаранция --- */
+/* --- Секция 7: Безусловната Договорна Гаранция (С въртящ се пръстен) --- */
 .guarantee-section {
     border-top: 1px solid rgba(15, 23, 42, 0.04);
 }
@@ -1224,6 +1194,7 @@ header {
     gap: 3rem;
     align-items: center;
     box-shadow: 0 25px 50px rgba(15, 23, 42, 0.03);
+    transition: var(--transition-premium);
 }
 
 @media (max-width: 800px) {
@@ -1239,37 +1210,49 @@ header {
     flex-shrink: 0;
     display: flex;
     justify-content: center;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    align-items: center;
 }
 
-.guarantee-seal {
-    width: 130px;
-    height: 130px;
+/* Външен въртящ се пръстен */
+.guarantee-ring {
+    position: absolute;
+    width: 146px;
+    height: 146px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
-    border: 3px double var(--blue-3);
+    border: 3px dashed var(--blue-3);
+    box-shadow: var(--blue-glow);
+    animation: rotateSlow 15s linear infinite;
+    z-index: 1;
+}
+
+/* Статичен вътрешен кръг с текста */
+.guarantee-seal-static {
+    position: absolute;
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid rgba(37, 99, 235, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--blue-3);
+    color: var(--blue-5);
     font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 1rem;
+    font-weight: 800;
+    font-size: 0.95rem;
     text-align: center;
     text-transform: uppercase;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.05);
-    animation: rotateSlow 20s linear infinite;
+    line-height: 1.25;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);
 }
 
 @keyframes rotateSlow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
-}
-
-.guarantee-seal-text {
-    transform: rotate(0deg);
 }
 
 .guarantee-content h3 {
@@ -1286,10 +1269,6 @@ header {
     color: var(--text-secondary);
 }
 
-.guarantee-content p strong {
-    color: var(--text-primary);
-}
-
 /* --- Секция 8: Кандидатстване --- */
 .apply-section {
     background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.02) 100%);
@@ -1300,6 +1279,7 @@ header {
 .apply-card {
     max-width: 650px;
     margin: 2.5rem auto 0;
+    transition: var(--transition-premium);
 }
 
 .form-group {
@@ -1382,6 +1362,7 @@ footer {
     background: #FFFFFF;
     position: relative;
     z-index: 10;
+    transition: var(--transition-premium);
 }
 
 .footer-container {
@@ -1424,7 +1405,7 @@ footer {
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Направено изключително плавно и бавно */
 }
 
 .reveal.active {
