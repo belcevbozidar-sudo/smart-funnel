@@ -1,5 +1,5 @@
 /*
- * Smart Funnel - CSS Design System (Light Premium Theme - Refined)
+ * Lead System - CSS Design System (Light Premium Theme - Refined)
  * Оптимизиран за максимално доверие, сигурност и банкова тежест.
  * Всички анимации са направени изключително плавни, нежни и елегантни.
  */
@@ -1166,7 +1166,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: margin-bottom 0.4s cubic-bezier(0.25, 1, 0.5, 1), color 0.4s ease;
+    transition: color 0.4s ease;
 }
 
 .faq-question::after {
@@ -1181,7 +1181,6 @@ header {
 
 .faq-item.active .faq-question {
     color: var(--blue-3);
-    margin-bottom: 0.85rem;
 }
 
 .faq-item.active .faq-question::after {
@@ -1196,11 +1195,13 @@ header {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, margin-top 0.4s ease;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    box-sizing: border-box;
 }
 
 .faq-item.active .faq-answer {
     opacity: 1;
+    padding-top: 0.85rem;
 }
 
 /* Стилизиране на везните в предупредителната кутия */
@@ -1730,5 +1731,8 @@ footer {
     .reviews-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    .glass-card::before {
+        background: linear-gradient(90deg, var(--blue-3), #60A5FA) !important;
     }
 }

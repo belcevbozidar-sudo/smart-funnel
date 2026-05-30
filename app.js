@@ -1,5 +1,5 @@
 /**
- * Smart Funnel - Interactive Web Logic Engine (Popup Multi-step Version)
+ * Lead System - Interactive Web Logic Engine (Popup Multi-step Version)
  * Управлява попъп мултистеп формата, ROI калкулатора, плавното скролиране и анимациите при скрол.
  */
 
