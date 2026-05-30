@@ -289,17 +289,95 @@ document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        if (question) {
+        const answer = item.querySelector('.faq-answer');
+        
+        if (question && answer) {
             question.addEventListener('click', (e) => {
                 e.stopPropagation();
+                
                 // Затваряне на останалите FAQ
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        if (otherAnswer) {
+                            otherAnswer.style.maxHeight = null;
+                        }
                     }
                 });
-                item.classList.toggle('active');
+                
+                const isActive = item.classList.toggle('active');
+                if (isActive) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = null;
+                }
             });
         }
     });
+
+    /* ==========================================================================
+       5. Управление на формата за ревюта (Review Form Modal)
+       ========================================================================== */
+    const reviewModal = document.getElementById('review-modal');
+    const openReviewBtns = document.querySelectorAll('.open-review-modal-btn');
+    const closeReviewBtn = document.getElementById('review-modal-close-btn');
+    const cancelReviewBtn = document.getElementById('btn-cancel-review');
+    const reviewForm = document.getElementById('review-form');
+    const reviewSuccessState = document.getElementById('review-success-state');
+    const closeSuccessBtn = document.getElementById('btn-close-review-success');
+    const reviewSpinner = document.getElementById('review-spinner');
+    const submitReviewBtn = document.getElementById('btn-submit-review');
+
+    const openReviewModal = () => {
+        if (!reviewModal) return;
+        reviewModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Reset states
+        if (reviewForm) reviewForm.style.display = 'block';
+        if (reviewSuccessState) reviewSuccessState.style.display = 'none';
+        if (reviewForm) reviewForm.reset();
+        if (reviewSpinner) reviewSpinner.style.display = 'none';
+        if (submitReviewBtn) submitReviewBtn.disabled = false;
+    };
+
+    const closeReviewModal = () => {
+        if (!reviewModal) return;
+        reviewModal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    openReviewBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openReviewModal();
+        });
+    });
+
+    if (closeReviewBtn) closeReviewBtn.addEventListener('click', closeReviewModal);
+    if (cancelReviewBtn) cancelReviewBtn.addEventListener('click', closeReviewModal);
+    if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeReviewModal);
+
+    if (reviewModal) {
+        reviewModal.addEventListener('click', (e) => {
+            if (e.target === reviewModal) {
+                closeReviewModal();
+            }
+        });
+    }
+
+    if (reviewForm) {
+        reviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (submitReviewBtn) submitReviewBtn.disabled = true;
+            if (reviewSpinner) reviewSpinner.style.display = 'inline-block';
+            
+            setTimeout(() => {
+                if (reviewForm) reviewForm.style.display = 'none';
+                if (reviewSuccessState) reviewSuccessState.style.display = 'block';
+            }, 1200);
+        });
+    }
 });

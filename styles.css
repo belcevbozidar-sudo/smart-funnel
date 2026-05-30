@@ -1200,7 +1200,6 @@ header {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 250px;
     opacity: 1;
 }
 
@@ -1598,5 +1597,138 @@ footer {
     .soothing-guarantee-btn {
         width: 100%;
         text-align: center;
+    }
+}
+
+/* --- Секция Ревюта (Reviews Section) --- */
+.reviews-section {
+    padding: 5rem 0;
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
+    background: linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.01) 50%, transparent 100%);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.review-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-premium);
+}
+
+.review-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.05);
+    border-color: rgba(37, 99, 235, 0.15);
+}
+
+.review-body {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.review-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.04);
+    padding-top: 1.25rem;
+}
+
+.review-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+
+.male-avatar {
+    background: linear-gradient(135deg, var(--blue-3) 0%, var(--blue-5) 100%);
+}
+
+.female-avatar {
+    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.review-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.review-name {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--blue-5);
+}
+
+.review-business {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* --- Стили за примера под калкулатора --- */
+.roi-real-example {
+    background: rgba(34, 197, 94, 0.04);
+    border: 1px dashed rgba(34, 197, 94, 0.25);
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-align: left;
+    transition: var(--transition-premium);
+}
+
+.roi-real-example:hover {
+    background: rgba(34, 197, 94, 0.06);
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.example-badge {
+    background: #16a34a;
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.example-text {
+    font-size: 0.88rem;
+    color: #15803d;
+    margin: 0;
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
