@@ -181,6 +181,12 @@ header {
     letter-spacing: -0.03em;
 }
 
+.logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+
 .logo-icon {
     display: flex;
     align-items: center;
